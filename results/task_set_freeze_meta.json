@@ -1,0 +1,7 @@
+{
+  "path": "data\\task_set.jsonl",
+  "n_items": 12,
+  "sha256": "ad60f406317f4cbf8b4d2b10ddab730858cec2020c722c2bfee4131d08bad36b",
+  "builder": "scripts/build_task_set.py",
+  "note": "Author-curated benign tool-use tasks; fake sk_test_REDACTED* only at runtime."
+}

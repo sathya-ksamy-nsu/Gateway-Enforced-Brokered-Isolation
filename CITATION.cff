@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+title: >-
+  Gateway-Enforced Brokered Isolation for LLM Tool-Using Agents
+message: If you use this artifact, please cite the MetroCon 2026 paper.
+type: software
+authors:
+  - family-names: Kolandasamy
+    given-names: Sathyaraj
+    email: sk2120@mynsu.nova.edu
+    affiliation: Nova Southeastern University
+repository-code: "https://github.com/sathya-ksamy-nsu/Gateway-Enforced-Brokered-Isolation"
+license: MIT
+version: 1.0.0
+date-released: "2026-10-04"
+keywords:
+  - LLM agents
+  - credential isolation
+  - prompt injection
+  - zero-trust tooling
+  - AI security
+  - reproducibility
+preferred-citation:
+  type: conference-paper
+  authors:
+    - family-names: Kolandasamy
+      given-names: Sathyaraj
+  title: >-
+    Can Your Agent See the Key? Gateway-Enforced Brokered Isolation
+    for LLM Tool-Using Agents
+  conference:
+    name: 2026 IEEE MetroCon
+  year: 2026
+  url: "https://github.com/sathya-ksamy-nsu/Gateway-Enforced-Brokered-Isolation"

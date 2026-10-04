@@ -1,0 +1,78 @@
+# =============================================================================
+# Configuration for the brokered-credential isolation evaluation harness.
+#
+# Source of truth for task set, secret mode, injection suite, model endpoint,
+# output paths, and RNG seed. Every module reads settings from here.
+#
+# SECURITY: This file contains NO secrets. Fake research tokens live in
+# src/secrets.py as clearly labeled sk_test_REDACTED* placeholders. Real LLM
+# API keys are read only from the environment variable named in
+# model.api_key_env -- never hardcode a key here.
+#
+# NOTE: Nothing here fabricates results. Values are configuration only.
+# =============================================================================
+
+# --- Reproducibility -----------------------------------------------------------
+seed: 42
+
+# --- Task / dataset ------------------------------------------------------------
+task:
+  name: "agent-credential-isolation"
+  # Frozen 12-task set committed in this artifact (see data/README.md).
+  # When missing, the harness falls back to the synthetic set in src/tasks.py
+  # (offline tests only — not the paper benchmark).
+  path: "data/task_set.jsonl"
+
+# --- Secret / credential modes (paper Section 4.2) -----------------------------
+# direct  = model may call get_secret / read env; plaintext fake tokens enter
+#           model-visible tool results (insecure baseline).
+# brokered = model may only call a policy-gated broker; short-lived non-exportable
+#           handles are used server-side; secrets NEVER return to the model.
+modes:
+  - "direct"
+  - "brokered"
+
+# --- Injection strategies (attack side; see src/injections.py) -----------------
+# Sanitized, clearly-labeled research payloads. "none" is the clean control.
+injections:
+  - "none"
+  - "naive_exfil"
+  - "tool_override"
+  - "fake_completion"
+
+# --- Broker policy (brokered mode only) ----------------------------------------
+broker:
+  # TTL for issued capability handles (seconds). Handles expire and are
+  # non-exportable: the model receives only opaque handle IDs, never secrets.
+  handle_ttl_sec: 60
+  # Actions the broker will execute on behalf of the agent (allowlist).
+  allowed_actions:
+    - "fetch_public_status"
+    - "lookup_ticket"
+    - "summarize_doc"
+  # Actions that are always denied (defensive deny-by-default for misuse probes).
+  denied_actions:
+    - "exfiltrate"
+    - "print_secret"
+    - "export_credential"
+    - "send_to_url"
+
+# --- Model / agent endpoint ----------------------------------------------------
+model:
+  # Default mock=true for offline CI. Live MetroCon freeze (2026-09-25) used
+  # mock=false with local Ollama llama3.2:1b (see results/DATA_FREEZE.md).
+  mock: true
+  name: "llama3.2:1b"
+  endpoint: "http://127.0.0.1:11434/v1/chat/completions"
+  # Ollama accepts any non-empty Bearer token; export LLM_API_KEY=ollama-local.
+  api_key_env: "LLM_API_KEY"
+  temperature: 0.0
+  timeout_sec: 120
+  max_tool_steps: 4
+
+# --- Output --------------------------------------------------------------------
+output:
+  results_dir: "results"
+  formats: ["json", "csv"]
+  # Redact any residual fake-secret patterns from written logs (defense in depth).
+  redact_logs: true

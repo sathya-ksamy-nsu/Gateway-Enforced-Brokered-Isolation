@@ -1,0 +1,10 @@
+# Pinned for reproducible smoke / CI (Python 3.12). Do not invent results.
+# Reproducible validation artifacts for the brokered-credential isolation study.
+# Versions are pinned-ish (compatible-release, >=) to balance reproducibility with
+# the author's local Python setup. Pin exact ==versions in a lockfile before
+# submission (see README reproducibility checklist).
+
+numpy==2.5.3
+pyyaml==6.0.3
+pytest==9.1.1
+requests==2.34.2

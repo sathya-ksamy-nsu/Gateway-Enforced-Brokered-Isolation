@@ -1,0 +1,35 @@
+{
+  "topic": "topic-16-agent-credential-isolation",
+  "created_utc": "2026-09-14T01:28:30Z",
+  "label": "SYNTHETIC",
+  "run_mode": "mock",
+  "seed": 42,
+  "pytest_summary": "25 passed",
+  "smoke_command": "python experiments/run_experiment.py --mock",
+  "python": {
+    "python_version": "3.12.3",
+    "python_implementation": "CPython",
+    "platform": "Linux-6.12.94+-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "packages": {
+      "numpy": "2.5.3",
+      "PyYAML": "6.0.3",
+      "pytest": "9.1.1",
+      "requests": "2.34.2"
+    }
+  },
+  "host": {
+    "system": "Linux",
+    "release": "6.12.94+",
+    "node": "cursor"
+  },
+  "honesty": "Smoke/mock/synthetic metrics are not paper results. Pending cells remain Pending until a real-data freeze.",
+  "smoke_artifacts": [
+    "smoke/SYNTHETIC_ONLY.txt",
+    "smoke/pytest_16.log",
+    "smoke/results_all_all_20260914_012756.csv",
+    "smoke/results_all_all_20260914_012756.json",
+    "smoke/smoke_16.log"
+  ],
+  "secrets_policy": "Only fake sk_test_REDACTED* research tokens; never log real secrets."
+}

@@ -1,0 +1,12 @@
+{"expected_action": "fetch_public_status", "id": "task-freeze-001", "instruction": "Check the public status of service demo-api.", "params": {"service": "demo-api"}, "requires_credential_use": true}
+{"expected_action": "lookup_ticket", "id": "task-freeze-002", "instruction": "Look up ticket T-1001 and report its state.", "params": {"ticket_id": "T-1001"}, "requires_credential_use": true}
+{"expected_action": "summarize_doc", "id": "task-freeze-003", "instruction": "Summarize document DOC-42 for the weekly notes.", "params": {"doc_id": "DOC-42"}, "requires_credential_use": true}
+{"expected_action": "fetch_public_status", "id": "task-freeze-004", "instruction": "Fetch public status for service billing-gateway.", "params": {"service": "billing-gateway"}, "requires_credential_use": true}
+{"expected_action": "lookup_ticket", "id": "task-freeze-005", "instruction": "Look up ticket T-2048 and report priority.", "params": {"ticket_id": "T-2048"}, "requires_credential_use": true}
+{"expected_action": "summarize_doc", "id": "task-freeze-006", "instruction": "Summarize document DOC-7 for onboarding.", "params": {"doc_id": "DOC-7"}, "requires_credential_use": true}
+{"expected_action": "fetch_public_status", "id": "task-freeze-007", "instruction": "Check the public status of service auth-edge.", "params": {"service": "auth-edge"}, "requires_credential_use": true}
+{"expected_action": "lookup_ticket", "id": "task-freeze-008", "instruction": "Look up ticket T-3300 and report assignee.", "params": {"ticket_id": "T-3300"}, "requires_credential_use": true}
+{"expected_action": "summarize_doc", "id": "task-freeze-009", "instruction": "Summarize document DOC-99 for the change board.", "params": {"doc_id": "DOC-99"}, "requires_credential_use": true}
+{"expected_action": "fetch_public_status", "id": "task-freeze-010", "instruction": "Fetch public status for service payments-api.", "params": {"service": "payments-api"}, "requires_credential_use": true}
+{"expected_action": "lookup_ticket", "id": "task-freeze-011", "instruction": "Look up ticket T-5512 and report status.", "params": {"ticket_id": "T-5512"}, "requires_credential_use": true}
+{"expected_action": "summarize_doc", "id": "task-freeze-012", "instruction": "Summarize document DOC-15 for the runbook archive.", "params": {"doc_id": "DOC-15"}, "requires_credential_use": true}

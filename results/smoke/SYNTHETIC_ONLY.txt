@@ -1,0 +1,7 @@
+LABEL: SYNTHETIC
+MODE: mock
+DATE_UTC: 2026-09-14T01:28:30Z
+COMMAND: python experiments/run_experiment.py --mock
+These outputs are PIPELINE VALIDATION / SMOKE only.
+Do NOT cite as experimental or paper results.
+Do NOT fill Pending manuscript cells from these files.
